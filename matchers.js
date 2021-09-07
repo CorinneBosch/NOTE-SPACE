@@ -1,54 +1,4 @@
 // Branch out and add your matchers here
-
-(function() {
-  window.describe_block_tag = "";
-
-  function describe (description, callback) {
-    // This is deliberately global
-    window.describe_block_tag = description;
-
-    callback();
-  }
-
-  function expect(actual) {
-    return {
-      toEqual: function (expected) {
-        if (actual === expected) {
-          console.log(".");
-        } else {
-          let block_tag = window.describe_block_tag ? window.describe_block_tag : "";
-          console.log(`${block_tag}: expected ${actual} to equal ${expected}`);
-        }
-      }
-    }
-  }
-})
-
-function expect(actual) {
-  return {
-    toEqual: function (expected) {
-      if(actual === expected) {
-        console.log(".") 
-      } else {
-        throw new Error(`expected ${actual} to equal ${expected}`)
-      }
-    },
-    notToEqual: function (expected) {
-      if(actual !== expected) {
-        console.log(".")
-      } else {
-        throw new Error(`expected ${actual} to equal ${expected}`)
-      }
-    },
-    toHaveSize: function (expected) {
-      if(actual.length === expected) {
-        console.log(".")
-      } else {
-        throw new Error(`expected ${actual} to equal ${expected}`)
-      }
-    }
-  }
-}
 (function () {
   var describe_tag = '';
 
@@ -57,7 +7,7 @@ function expect(actual) {
     callback();
   }
 
-  function it(descriotion, callback) {
+  function it(description, callback) {
     try {
       callback();
     } catch (error) {
@@ -77,6 +27,27 @@ function expect(actual) {
           console.log(`${expected} exists in array`);
         } else {
           throw new Error(`${expected} does not exist in array`);
+        }
+      },
+      toEqual: function (expected) {
+        if (actual === expected) {
+          console.log('.');
+        } else {
+          throw new Error(`expected ${actual} to equal ${expected}`);
+        }
+      },
+      notToEqual: function (expected) {
+        if (actual !== expected) {
+          console.log('.');
+        } else {
+          throw new Error(`expected ${actual} to equal ${expected}`);
+        }
+      },
+      toHaveSize: function (expected) {
+        if (actual.length === expected) {
+          console.log('.');
+        } else {
+          throw new Error(`expected ${actual} to equal ${expected}`);
         }
       },
     };
