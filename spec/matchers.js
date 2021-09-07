@@ -1,5 +1,6 @@
 // Branch out and add your matchers here
 // (function () {
+
 // var describe_tag = '';
 
 // function describe(description, callback) {
@@ -50,6 +51,14 @@ function expect(actual) {
         throw new Error(`expected ${actual} to equal ${expected}`);
       }
     },
+    toBeInstanceOf: function (expected) {
+        if (actual instanceof expected) {
+          console.log('.');
+        } else {
+          throw new Error(`expected ${actual} to be an instance of ${expected}`);
+        }
+      }
+    };
   };
 }
 
