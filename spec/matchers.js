@@ -24,6 +24,7 @@
       toContain: function (expected) {
         check = actual.includes(expected);
         if (check === true) {
+          actual = [];
           console.log(`${expected} exists in array`);
         } else {
           throw new Error(`${expected} does not exist in array`);
@@ -50,6 +51,13 @@
           throw new Error(`expected ${actual} to equal ${expected}`);
         }
       },
+      toBeInstanceOf: function (expected) {
+        if (actual.constructor.name === expected.constructor.name) {
+          console.log('.');
+        } else {
+          throw new Error(`expected ${actual} to be an instance of ${expected}`);
+        }
+      }
     };
   }
 
