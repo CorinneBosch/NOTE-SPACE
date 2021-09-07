@@ -1,3 +1,4 @@
-// require('matchers.js')
+let note = new Note;
+//test if description is empty at creation
+expect(note.description).toHaveSize(0)
 
-expect([1, 3, 7]).toContain(3);
