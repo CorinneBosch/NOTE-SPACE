@@ -14,10 +14,15 @@ class NoteBook {
   }
 
   abbreviatedText() {
+    this.noteList.map(note => { 
+      cosnsole.log(`${note.substring(0, 20)}...`);
+    });
+  }
 
-    this.noteList.map((note) => {
-      //console.log(note);
-      note.substring(0, 20)/* + '...' */}) //.description - add this in when calling Note Object
+
+  // Only for testing!!
+  clearArray() {
+    this.noteList = [];
   }
 
 }
