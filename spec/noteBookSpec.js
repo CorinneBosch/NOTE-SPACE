@@ -14,7 +14,7 @@ expect(notebook.noteList[0]).toEqual(undefined);
 /********************/
 
 description('It is expected to be an array');
-expect(notebook.noteList).toBeInstanceOf([]);
+expect(notebook.noteList).toBeInstanceOf(Array);
 
 /********************/
 

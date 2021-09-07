@@ -52,13 +52,12 @@ function expect(actual) {
       }
     },
     toBeInstanceOf: function (expected) {
-        if (actual instanceof expected) {
-          console.log('.');
-        } else {
-          throw new Error(`expected ${actual} to be an instance of ${expected}`);
-        }
+      if (actual instanceof expected) {
+        console.log('.');
+      } else {
+        throw new Error(`expected ${actual} to be an instance of ${expected}`);
       }
-    };
+    },
   };
 }
 
