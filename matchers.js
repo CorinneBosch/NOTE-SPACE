@@ -19,7 +19,7 @@
   //   }
   // }
 
-  (function expect(actual) {
+  function expect(actual) {
     return {
       toContain: function (expected) {
         check = actual.includes(expected);
