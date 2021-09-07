@@ -53,6 +53,8 @@
     };
   }
 
+  expect([1,2,3]).toContain(2);
+
   // describe('Note', () => {
     // it('checks if value is in array', () => {
       // expect([1, 3, 7]).toContain(3)
