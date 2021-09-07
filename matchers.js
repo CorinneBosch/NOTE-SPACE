@@ -1,25 +1,25 @@
 // Branch out and add your matchers here
-(function () {
-  var describe_tag = '';
+// (function () {
+  // var describe_tag = '';
 
-  function describe(description, callback) {
-    describe_tag = description;
-    callback();
-  }
+  // function describe(description, callback) {
+  //   describe_tag = description;
+  //   callback();
+  // }
 
-  function it(description, callback) {
-    try {
-      callback();
-    } catch (error) {
-      console.log(
-        `${describe_tag || ''}: ${description} failed with error: ${
-          error.message
-        }`
-      );
-    }
-  }
+  // function it(description, callback) {
+  //   try {
+  //     callback();
+  //   } catch (error) {
+  //     console.log(
+  //       `${describe_tag || ''}: ${description} failed with error: ${
+  //         error.message
+  //       }`
+  //     );
+  //   }
+  // }
 
-  function expect(actual) {
+  (function expect(actual) {
     return {
       toContain: function (expected) {
         check = actual.includes(expected);
@@ -53,12 +53,12 @@
     };
   }
 
-  describe('Note', () => {
-    it('checks if value is in array', () => {
-      expect([1, 3, 7]).toContain(3);
-    });
-  });
-})();
+  // describe('Note', () => {
+    // it('checks if value is in array', () => {
+      // expect([1, 3, 7]).toContain(3)
+    // });
+  // })();
+// })();
 // check 'actual' is in the array by iterating to find the value
 // return message if value is found
 // return message if value is not found
