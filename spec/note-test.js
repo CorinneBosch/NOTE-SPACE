@@ -4,4 +4,3 @@ let note = new Note(message);
 expect(note instanceof Note).toEqual(true);
 // test if create takes parameter and updates descriotion value
 expect(note.description).toEqual('I need to buy bananas');
-git;
