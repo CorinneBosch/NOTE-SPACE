@@ -15,8 +15,6 @@ class NoteBook {
   }
 
   abbreviatedText() {
-    this.noteList.map((note) => {
-      console.log(`${note.substring(0, 20)}...`);
-    });
+    return this.noteList.map((note) => `${note.substring(0, 20)}...`);
   }
 }
