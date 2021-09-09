@@ -40,27 +40,34 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(element.target.id);
         document.getElementById('display-full-note').innerText =
           noteBook.fullText(element.target.id);
+        // happyEmoji(fullnote);
       }
     });
 
-  const happyEmoji = (text) => {
-    fetch('https://makers-emojify.herokuapp.com/'),
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: text }),
-      }
-        .then((response) => response.json())
-        .then((text) => {
-          console.log(text.emojified_text);
-          // document.querySelector('#demoji_test').innerText = note
-        });
+  function happyEmoji(text) {
+    fetch('https://makers-emojify.herokuapp.com/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: text }),
+    })
+      .then((response) => response.json())
+      .then((text) => {
+        console.log(text.emojified_text);
+        // document.querySelector('#demoji_test').innerText = note
+      });
+
     // .catch(() => {
     //   // return "status": "ERROR",
     // }
-  };
+  }
 
   // happyEmoji('Hello, :earth_africa:');
+  document.querySelector('#xoxo').addEventListener('click', () => {
+    let world = document.querySelector('#hello_world').innerText;
+    document.querySelector('#hello_world').innerText = happyEmoji(world);
+  });
+  // happyEmoji(world);
+
   // passed to server
   // -X POST \
   // -H "Content-Type: application/json" \
