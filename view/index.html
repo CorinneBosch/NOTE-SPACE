@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notes</title>
     <link rel="stylesheet" type="text/css" href="../public/style.css" />
     <script src="../src/note.js"></script>
@@ -10,16 +12,21 @@
   </head>
   <body>
     <section id="box">
-
-        <h1 id="title">Notes</h1>
+      <section id="title_box">
+        <h1 id="title">SPACE FOR NOTES</h1>
+      </section>
+      <section id="create_note_box">
+        <h2>Create a new note:</h2>
         <textarea id="create-note" placeholder="Your note"></textarea><br />
-        <button id="submit">Create</button><br />
-        <ul id="list-container">
-        </ul>
-        <button id='close-note'>Close note</button>
-        
-        <h3 id="display-full-note"></h3>
-
+        <button id="submit">Create</button>
+      </section>
+      <section id="full_note_box">
+        <h4 id="display-full-note"></h4>
+        <button id="close-note">Close note</button>
+      </section>
+      <section id="list_note_box">
+        <ul id="list-container"></ul>
+      </section>
     </section>
   </body>
 </html>
