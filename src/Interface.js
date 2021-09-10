@@ -1,35 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-  updateList = () => {
-    noteBook.abbreviatedText();
-  };
   const noteBook = new NoteBook();
+  console.log(noteBook.noteList);
 
-  console.log(noteBook);
-
-  addListTag = () => {
+  addListItem = (note) => {
+    note = document.querySelector('#create-note').value;
     let list = document.querySelector('#list-container');
     let li = document.createElement('li');
     let link = document.createElement('a');
-    let noteList = noteBook.abbreviatedText();
-    noteList.forEach((note) => {
-      for (let i = 0; i <= noteList.length; i++) {
-        link.setAttribute('id', `${i - 1}`);
-        link.href = `#${note}`;
-        link.innerText = note;
-        li.appendChild(link);
-        list.appendChild(li);
-      }
-    });
+    link.href = '#';
+    link.setAttribute('id', `${noteBook.noteList.length}`);
+    link.innerText = note.substring(0, 20);
+    li.appendChild(link);
+    list.appendChild(li);
   };
 
-  updateList();
+  // one route that connects the textarea and passes it as argument of save note
 
   // one route that connects the textarea and passes it as argument of save note
   document.querySelector('#submit').addEventListener('click', () => {
-    let note = document.querySelector('#create-note').value;
-    noteBook.saveNote(note);
-    addListTag();
+    note = document.querySelector('#create-note').value;
+    let emojify = happyEmoji(note);
+    addListItem();
+    noteBook.saveNote(emojify);
     document.querySelector('#create-note').value = '';
+    console.log(noteBook.noteList);
   });
 
   // gets full note from link
@@ -47,4 +41,31 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('close-note').addEventListener('click', () => {
     document.getElementById('display-full-note').innerText = '';
   });
+
+  const emojify = (text) => {
+    document.getElementById('0').innerHTML = text.emojified_text;
+    document.getElementById('1').innerHTML = text.emojified_text;
+    document.getElementById('2').innerHTML = text.emojified_text;
+    // document.querySelector('#display-full-note').innerHTML =
+    // text.emojified_text;
+  };
+
+  // fetches emoji API
+  function happyEmoji(text) {
+    let promise = fetch('https://makers-emojify.herokuapp.com/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: text }),
+    })
+      .then((response) => response.json())
+      .then((text) => {
+        emojify(text);
+        console.log(text.emojified_text);
+      })
+      .catch((err) => {
+        console.warn('No emojis found :(', err);
+      });
+    return promise;
+  }
+
 });
