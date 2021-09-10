@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let link = document.createElement('a');
     link.href = '#';
     link.setAttribute('id', `${noteBook.noteList.length}`);
-    link.innerText = happyEmoji(note.substring(0, 20));
+    link.innerText = note.substring(0, 20);
     li.appendChild(link);
     list.appendChild(li);
   };
@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // one route that connects the textarea and passes it as argument of save note
   document.querySelector('#submit').addEventListener('click', () => {
     note = document.querySelector('#create-note').value;
-    // let emojify = happyEmoji(note);
+    let emojify = happyEmoji(note);
     addListItem();
-    noteBook.saveNote(note);
+    noteBook.saveNote(emojify);
     document.querySelector('#create-note').value = '';
     console.log(noteBook.noteList);
   });
@@ -34,12 +34,15 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(element.target.id);
         document.getElementById('display-full-note').innerText =
           noteBook.fullText(element.target.id);
-        // happyEmoji(fullnote);
       }
     });
 
   const emojify = (text) => {
-    document.querySelector('#list-container').innerHTML = text.emojified_text;
+    document.getElementById('0').innerHTML = text.emojified_text;
+    document.getElementById('1').innerHTML = text.emojified_text;
+    document.getElementById('2').innerHTML = text.emojified_text;
+    // document.querySelector('#display-full-note').innerHTML =
+    // text.emojified_text;
   };
 
   // fetches emoji API
@@ -59,28 +62,4 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     return promise;
   }
-
-  // happyEmoji('Hello, :earth_africa: :sweat:').then(() => {
-  //   console.log('I used a promise :) ');
-  // });
-
-  // happyEmoji('Hello, :earth_africa:');
-  // document.querySelector('#xoxo').addEventListener('click', () => {
-  //   let world = document.querySelector('#hello_world').innerText;
-  //   document.querySelector('#hello_world').innerHTML = happyEmoji(world);
-  // });
-
-  // passed to server
-  // -X POST \
-  // -H "Content-Type: application/json" \
-  // -d '{"text": "Hello, :earth_africa:"}'
-
-  // json resonse
-  // "status": "OK",
-  // "text": "Hello, :earth_africa:",
-  // "emojified_text": "Hello, :earth_africa:"
-
-  // or error response
-  // "status": "ERROR",
-  // "message": "--Error message--"
 });
