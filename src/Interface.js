@@ -19,9 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // one route that connects the textarea and passes it as argument of save note
   document.querySelector('#submit').addEventListener('click', () => {
     note = document.querySelector('#create-note').value;
-    let emojify = happyEmoji(note);
+    //let emojify = happyEmoji(note);
     addListItem();
-    noteBook.saveNote(emojify);
+    noteBook.saveNote(note);
+    happyEmoji(note);
     document.querySelector('#create-note').value = '';
     console.log(noteBook.noteList);
   });
@@ -33,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (element.target && element.target.nodeName == 'A') {
         console.log(element.target.id);
         document.getElementById('display-full-note').innerText =
-          noteBook.fullText(element.target.id);
+          //noteBook.fullText(element.target.id);
+          happyEmoji(noteBook.fullText(element.target.id));
       }
     });
 
@@ -43,12 +45,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const emojify = (text) => {
-    document.getElementById('0').innerHTML = text.emojified_text;
-    document.getElementById('1').innerHTML = text.emojified_text;
-    document.getElementById('2').innerHTML = text.emojified_text;
-    // document.querySelector('#display-full-note').innerHTML =
-    // text.emojified_text;
+    for (let i = 0; i === noteBook.noteList; i++) {
+      document.getElementById(i).innerHTML = text.emojified_text;
+      // document.querySelector('#display-full-note').innerHTML =
+      // text.emojified_text;
+      }
+    document.querySelector('#display-full-note').innerHTML =
+      text.emojified_text;
   };
+
 
   // fetches emoji API
   function happyEmoji(text) {
