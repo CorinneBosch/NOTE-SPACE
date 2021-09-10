@@ -2,31 +2,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const noteBook = new NoteBook();
   console.log(noteBook.noteList);
 
-  addListTag = () => {
+  addListItem = (note) => {
+    note = document.querySelector('#create-note').value;
     let list = document.querySelector('#list-container');
     let li = document.createElement('li');
     let link = document.createElement('a');
-    let noteList = noteBook.abbreviatedText();
-    noteList.forEach((note) => {
-      for (let i = 0; i <= noteList.length; i++) {
-        link.setAttribute('id', `${i - 1}`);
-        link.href = `#${note}`;
-        link.innerText = note;
-        li.appendChild(link);
-        list.appendChild(li);
-      }
-    });
+    link.href = '#';
+    link.setAttribute('id', `${noteBook.noteList.length}`);
+    link.innerText = happyEmoji(note.substring(0, 20));
+    li.appendChild(link);
+    list.appendChild(li);
   };
 
   // one route that connects the textarea and passes it as argument of save note
+
+  // one route that connects the textarea and passes it as argument of save note
   document.querySelector('#submit').addEventListener('click', () => {
-    let note = document.querySelector('#create-note').value;
-    let emojify = happyEmoji(note);
-    noteBook.saveNote(emojify);
-    // let tree = noteBook
-    // addListTag();
+    note = document.querySelector('#create-note').value;
+    // let emojify = happyEmoji(note);
+    addListItem();
+    noteBook.saveNote(note);
     document.querySelector('#create-note').value = '';
-    document.querySelector('#hello_world').innerHTML = emojify;
     console.log(noteBook.noteList);
   });
 
@@ -42,6 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+  const emojify = (text) => {
+    document.querySelector('#list-container').innerHTML = text.emojified_text;
+  };
+
   // fetches emoji API
   function happyEmoji(text) {
     let promise = fetch('https://makers-emojify.herokuapp.com/', {
@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
       .then((response) => response.json())
       .then((text) => {
+        emojify(text);
         console.log(text.emojified_text);
       })
       .catch((err) => {
@@ -59,12 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
     return promise;
   }
 
-  happyEmoji(
-    'Hello, :earth_africa: :unamused:',
-    'Hello, :unamused: :earth_africa:'
-  ).then(() => {
-    console.log('I used a promise :) ');
-  });
+  // happyEmoji('Hello, :earth_africa: :sweat:').then(() => {
+  //   console.log('I used a promise :) ');
+  // });
 
   // happyEmoji('Hello, :earth_africa:');
   // document.querySelector('#xoxo').addEventListener('click', () => {
