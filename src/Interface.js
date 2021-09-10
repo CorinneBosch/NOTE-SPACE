@@ -42,4 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
           noteBook.fullText(element.target.id);
       }
     });
+
+  // closes the open note
+  document.getElementById('close-note').addEventListener('click', () => {
+    document.getElementById('display-full-note').innerText = '';
+  });
 });
