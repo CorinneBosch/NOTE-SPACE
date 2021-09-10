@@ -37,6 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+  // closes the open note
+  document.getElementById('close-note').addEventListener('click', () => {
+    document.getElementById('display-full-note').innerText = '';
+  });
+
   const emojify = (text) => {
     document.getElementById('0').innerHTML = text.emojified_text;
     document.getElementById('1').innerHTML = text.emojified_text;
@@ -62,4 +67,5 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     return promise;
   }
+
 });

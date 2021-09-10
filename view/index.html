@@ -2,22 +2,37 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notes</title>
     <link rel="stylesheet" type="text/css" href="../public/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
     <script src="../src/note.js"></script>
     <script src="../src/noteBook.js"></script>
     <script src="../src/Interface.js"></script>
   </head>
   <body>
     <section id="box">
-      <h1 id="title">Notes</h1>
-      <textarea id="create-note" placeholder="Your note"></textarea><br />
-      <button id="submit">Create</button><br />
-      <ul id="list-container"></ul>
-
-      <h3 id="hello_world"></h3>
-      <button id="xoxo">Create</button><br />
-      <h3 id="display-full-note"></h3>
+      <section id="title_box">
+        <h1 id="title">note space</h1>
+      </section>
+      <section id="create_note_box">
+        <h2>create a new note:</h2>
+        <textarea id="create-note" placeholder="Your note"></textarea><br />
+        <button id="submit">create</button>
+      </section>
+      <section id="full_note_box">
+        <h4 id="display-full-note"></h4>
+        <button id="close-note">close note</button>
+      </section>
+      <section id="list_note_box">
+        <ul id="list-container"></ul>
+      </section>
     </section>
   </body>
 </html>
