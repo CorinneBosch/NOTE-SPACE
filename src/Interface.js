@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   function happyEmoji(text) {
-    fetch('https://makers-emojify.herokuapp.com/', {
+    let promise = fetch('https://makers-emojify.herokuapp.com/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: text }),
@@ -53,13 +53,17 @@ document.addEventListener('DOMContentLoaded', () => {
       .then((response) => response.json())
       .then((text) => {
         console.log(text.emojified_text);
-        // document.querySelector('#demoji_test').innerText = note
       });
 
+    return promise;
     // .catch(() => {
     //   // return "status": "ERROR",
     // }
   }
+
+  happyEmoji('Hello, :earth_africa:').then(() => {
+    console.log('I used a promise :) ');
+  });
 
   // happyEmoji('Hello, :earth_africa:');
   document.querySelector('#xoxo').addEventListener('click', () => {
