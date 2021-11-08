@@ -22,8 +22,8 @@ Note Space
 ```
 
 ## Afternoon challenge: Single Page Notes App
+A group project by [Hotu](https://github.com/ClaimingCookie5), [Ian](https://github.com/Battery0), [Blessing](https://github.com/BlessingUb) & [Corinne](https://github.com/CorinneBosch)\
 In this challenge we learned & implementing the follwoing practices while pair programming:
-A group project by [Hotu](https://github.com/ClaimingCookie5), [Ian](https://github.com/Battery0), [Blessing](https://github.com/BlessingUb) & [Corinne](https://github.com/CorinneBosch)
 
 - Implementing [Makers Emojify API](https://makers-emojify.herokuapp.com/)
 - Making Asynchronous requests
