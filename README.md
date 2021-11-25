@@ -20,6 +20,9 @@ Note Space
           `-._/._/
             
 ```
+______
+ 
+[Planning](#Planning) | [Set up](#Setup) | [Interact](#Interact) | [Run Tests](#Tests) | [User Stories](#User-Stories) 
 
 ## Afternoon challenge: Single Page Notes App
 A group project by [Hotu](https://github.com/ClaimingCookie5), [Ian](https://github.com/Battery0), [Blessing](https://github.com/BlessingUb) & [Corinne](https://github.com/CorinneBosch)\
@@ -41,19 +44,19 @@ Goals:
 - Use the DOM API to build a web user interface for this program.
 - Build a single-page web application fetching and updating remote data using JS.
 
-## Planning
+## <a name="Planning">Planning</a>
 
 **MVP**:
 A user can create a new note with 🔥 emoji & display note.
 
 Check out our domain model and MVC pattern here: [Workflow Mindmap](https://github.com/CorinneBosch/Note-Space/blob/main/public/images/planning.png)
 
-## Setup
+## <a name="Setup">Set up</a>
 
 1. **Fork** this [thermostat repository](https://github.com/CorinneBosch/Note-Space/) 
 2. Then clone **your** fork to your computer.
 
-## Interact with the programme
+## <a name="Interact">Interact with the programme</a>
 
 Open the application in your terminal with `open view/index.html`
 
@@ -61,8 +64,8 @@ A new browser window will open up automatically.\
 Feel free to add new notes and use emojis like `:fire:`\
 [Emoji short code cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
 
-## Run test 
-Part of this challenge was to create our own test library
+## <a name="Tests">Run test</a>
+Part of this challenge was to create our own test library.\
 To run all tests open test-framework in your directoy, this will open a new browser window. 
 
 ```
@@ -71,7 +74,7 @@ $ open test-framework.html
 After open your DevChrome tools to inspect your page.\
 All tests are printed out in the dev console.
 
-## Notes App User Stories:
+## <a name="User-Stories">Notes App User Stories:</a>
 ```
 As a programmer
 So I can find the one I want
